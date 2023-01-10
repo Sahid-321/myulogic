@@ -5,7 +5,6 @@ const cors = require("cors");
 const fs = require("fs");
 const reader = require('xlsx');
 const mongoose = require("mongoose");
-const { type } = require("os");
 
 mongoose.connect("mongodb://localhost:27017/myulogic", ()=>{
     console.log("mongodb connected successfully");

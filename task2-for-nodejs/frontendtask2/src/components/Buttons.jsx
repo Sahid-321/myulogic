@@ -2,20 +2,17 @@ import axios from "axios"
 import { useState } from "react"
 const Button = () => {
     const [showData, setShowData] = useState([])
-    const [check, setCheck] = useState("true")
+
 
 
     const handleExcel = () => {
-        setShowData([]);
-        if(check == "true"){
-            axios.get("http://localhost:8000/readexcelfile")
+      
+       
+            axios.get("http://localhost:8000/readexcelfile?filename=sahid")
             .then((res) => res.data)
             .catch((err) => console.log('error'))
         alert("Excell data added on mongoDB")
-        } else{
-            alert ("Data already present in mongoDB")
-        }
-        setCheck("false")
+     
       
     }
 
