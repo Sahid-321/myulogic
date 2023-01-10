@@ -75,6 +75,24 @@ app.get('/get', (req,res)=>{
     .then((data)=>res.json(data))
     .catch((err)=> console.log(err))
  })
-app.listen(8000, function(){
-    console.log("node app is runnig at port 8000");
+
+ app.delete('/delete', (req, res) => {
+    console.log("delete");
+    Post.find()
+        .then((item) => {
+            for (var i = 0; i < item.length; i++) {
+
+                Post.findByIdAndDelete({
+                    _id: item[i]._id
+                })
+                    .then((doc) => console.log(doc))
+                    .catch((err) => console.log(err))
+
+            }
+        }
+        )
+
+})
+app.listen(8080, function(){
+    console.log("node app is runnig at port 8080");
 })
